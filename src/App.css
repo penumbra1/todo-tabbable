@@ -1,39 +1,67 @@
+:root {
+  --background-color: #fcfaf9;
+  --primary-color: #8ea89f;
+  --font-color: #222;
+  --success-color: #aac88d;
+  --error-danger-color: #dd4b5a;
+  --title-font: "Scope One";
+  --body-font: "Quattrocento";
+}
+
 .App {
   text-align: center;
+  font-family: var(--body-font);
+  color: var(--font-color);
+  width: 90%;
+  max-width: 650px;
+  height: 97vh;
+  max-height: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 2px 4px 15px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--background-color);
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 1.5rem;
-  color: white;
+  background-color: #9cb8ae;
+  height: 15%;
+  padding: 2rem 1.5rem;
+  color: var(--background-color);
+  text-transform: uppercase;
 }
 
 .App-title {
+  font-family: var(--title-font);
   font-size: 2rem;
+  margin-bottom: 0;
 }
 
 .App-intro {
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-content {
+  height: 100%;
+  font-size: 1.2rem;
+  padding: 2rem;
 }
 
-.App-content {
-  font-size: 1.2rem;
-  padding-top: 1.5rem;
+.newItemForm {
+  margin: 1em;
+}
+
+.newItemForm input {
+  padding: 0.8rem;
+  font-family: var(--body-font);
+  font-size: inherit;
+  background-color: var(--background-color);
+  border: 2px solid var(--primary-color);
 }
 
 .App-content ul {
@@ -43,20 +71,29 @@
 
 .App-content ul li {
   list-style-type: none;
-  padding: 1rem;
+  height: 1.2em;
+  padding: 1em;
+}
+
+.App-content ul .active {
+  font-weight: 600;
 }
 
 .App-content ul li input {
   margin: 0;
-  margin-right: 0.8em;
+  margin-right: 1em;
+}
+
+.message {
+  height: 1em;
 }
 
 .error {
-  color: crimson;
+  color: var(--error-danger-color);
 }
 
 .success {
-  color: seagreen;
+  color: var(--success-color);
 }
 
 .removeItem {
@@ -66,8 +103,14 @@
   color: crimson;
   opacity: 0;
   height: 0;
-  margin-left: 0.8em;
+  width: 1.5em;
+  margin-left: 1em;
   padding: 0;
+}
+
+.removeItem svg {
+  fill: var(--error-danger-color);
+  vertical-align: bottom;
 }
 
 .App-content ul li:hover .removeItem,
@@ -75,11 +118,23 @@
 .removeItem:focus,
 .removeItem:active {
   opacity: 1;
-  height: auto;
+  height: 1.5em;
+}
+
+footer {
+  padding: 2rem;
 }
 
 footer a {
   padding: 1rem;
+  font-family: var(--title-font);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+footer a:hover,
+footer a:focus {
+  border: 2px solid var(--primary-color);
 }
 
 footer a.active {

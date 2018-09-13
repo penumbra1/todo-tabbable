@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { ReactComponent as Icon } from "../../assets/trash.svg";
+
 const TodoItem = props => {
   // Partial application: bind the function to props.id argument.
   // It will be executed with props.id automatically
@@ -13,7 +15,10 @@ const TodoItem = props => {
 
   return (
     <li>
-      <label htmlFor={htmlId}>
+      <label
+        htmlFor={htmlId}
+        className={props.showAll && !props.isComplete ? "active" : ""}
+      >
         <input
           type="checkbox"
           id={htmlId}
@@ -27,8 +32,9 @@ const TodoItem = props => {
           className="removeItem"
           onClick={handleRemove}
           aria-label={`Remove item ${props.name}`}
+          title="Icon created by Muneer A.Safiah from the Noun Project"
         >
-          X
+          <Icon />
         </button>
       </label>
     </li>
@@ -40,7 +46,8 @@ TodoItem.propTypes = {
   name: PropTypes.string.isRequired,
   isComplete: PropTypes.bool,
   handleToggle: PropTypes.func.isRequired,
-  handleRemove: PropTypes.func.isRequired
+  handleRemove: PropTypes.func.isRequired,
+  showAll: PropTypes.bool.isRequired
 };
 
 export default TodoItem;

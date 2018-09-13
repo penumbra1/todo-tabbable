@@ -10,6 +10,7 @@ const TodoList = props => (
         {...todo}
         handleToggle={props.handleToggle}
         handleRemove={props.handleRemove}
+        showAll={props.showAll}
       />
     ))}
   </ul>
@@ -17,6 +18,7 @@ const TodoList = props => (
 
 TodoList.propTypes = {
   todos: PropTypes.array.isRequired,
+  showAll: PropTypes.bool.isRequired,
   handleToggle: PropTypes.func.isRequired,
   handleRemove: PropTypes.func.isRequired
 };

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const TodoForm = props => (
-  <form action="" onSubmit={props.handleSubmit}>
+  <form action="" onSubmit={props.handleSubmit} className="newItemForm">
     <input
       type="text"
       value={props.currentTodo}
