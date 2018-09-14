@@ -26,6 +26,7 @@
 
 .App-logo {
   height: 80px;
+  fill: var(--font-color);
 }
 
 .App-header {
@@ -96,7 +97,7 @@
   color: var(--success-color);
 }
 
-.removeItem {
+.removeButton {
   background: none;
   border: none;
   font-weight: bold;
@@ -108,15 +109,15 @@
   padding: 0;
 }
 
-.removeItem svg {
+.removeButton svg {
   fill: var(--error-danger-color);
   vertical-align: bottom;
 }
 
-.App-content ul li:hover .removeItem,
-.App-content ul input:focus ~ .removeItem,
-.removeItem:focus,
-.removeItem:active {
+.App-content ul li:hover .removeButton,
+.App-content ul input:focus ~ .removeButton,
+.removeButton:focus,
+.removeButton:active {
   opacity: 1;
   height: 1.5em;
 }

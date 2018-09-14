@@ -25,34 +25,29 @@ const handleError = e => {
   throw new Error(errorMessage);
 };
 
-// Accepts a reference to a signal to abort fetch
-export const loadTodos = signal =>
-  fetch(baseUrl, { signal })
+const fetchAndHandle = (...params) =>
+  fetch(...params)
     .then(res => handleResponse(res))
     .catch(e => handleError(e));
 
+export const loadTodos = signal => fetchAndHandle(baseUrl, { signal });
+
 export const createTodo = todo =>
-  fetch(baseUrl, {
+  fetchAndHandle(baseUrl, {
     method: "POST",
     headers: { Accept: "application/json", "Content-Type": "application/json" },
     body: JSON.stringify(todo)
-  })
-    .then(res => handleResponse(res))
-    .catch(e => handleError(e));
+  });
 
 export const saveTodo = todo =>
-  fetch(`${baseUrl}/${todo.id}`, {
+  fetchAndHandle(`${baseUrl}/${todo.id}`, {
     method: "PUT",
     headers: { Accept: "application/json", "Content-Type": "application/json" },
     body: JSON.stringify(todo)
-  })
-    .then(res => handleResponse(res))
-    .catch(e => handleError(e));
+  });
 
 export const destroyTodo = id =>
-  fetch(`${baseUrl}/${id}`, {
+  fetchAndHandle(`${baseUrl}/${id}`, {
     method: "DELETE",
     headers: { Accept: "application/json", "Content-Type": "application/json" }
-  })
-    .then(res => handleResponse(res))
-    .catch(e => handleError(e));
+  });

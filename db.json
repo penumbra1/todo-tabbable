@@ -3,12 +3,17 @@
     {
       "id": 212,
       "name": "Learn FP",
-      "isComplete": true
+      "isComplete": false
     },
     {
       "id": 30098,
       "name": "Paint monsters",
       "isComplete": false
+    },
+    {
+      "id": 65132,
+      "name": "Get a coffee",
+      "isComplete": true
     }
   ]
 }

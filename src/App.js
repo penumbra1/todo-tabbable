@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import logo from "./assets/logo.svg";
-// import { ReactComponent as Logo } from "../../assets/trash.svg";
 
-import { TodoForm, TodoList, Footer } from "./components/todo";
+import { Header, Message, TodoForm, TodoList, Footer } from "./components/todo";
 import { Consumer } from "./components/router";
 import {
   addTodo,
@@ -45,16 +43,17 @@ class App extends Component {
       })
       .catch(e => {
         this.setState({ error: "Failed to load todos" });
+        console.error(e);
       });
   }
 
   componentWillUnmount() {
-    // Cancel fetch of todos
+    // Cancel ongoing fetch, if any
     this.abortController.abort();
   }
 
   handleDatabaseError = todos => e => {
-    // Revert optimistic update
+    // Revert optimistic UI update
     this.setState({ todos, error: "Oops! A database error has occurred" });
     console.error(e);
   };
@@ -104,7 +103,6 @@ class App extends Component {
     const updated = getToggledTodo(this.state.todos, id);
     const updatedTodos = updateTodo(this.state.todos, updated);
 
-    // Optimistic UI update
     this.setState({
       todos: updatedTodos,
       error: ""
@@ -136,29 +134,14 @@ class App extends Component {
       : this.handleEmptySubmit;
     return (
       <React.Fragment>
-        <header className="App-header">
-          <img
-            src={logo}
-            className="App-logo"
-            title="Logo created by Hea Poh Lin from the Noun Project"
-            alt="Logo resembling a Post-it note"
-          />
-          <h1 className="App-title">React todo</h1>
-        </header>
+        <Header />
         <main className="App-content">
           <TodoForm
             currentTodo={this.state.currentTodo}
             handleInputChange={this.handleInputChange}
             handleSubmit={submitHandler}
           />
-          <p className="message">
-            {this.state.error && (
-              <span className="error">{this.state.error}</span>
-            )}
-            {this.state.message && (
-              <span className="success">{this.state.message}</span>
-            )}
-          </p>
+          <Message error={this.state.error} message={this.state.message} />
           <Consumer>
             {({ route }) => (
               <TodoList

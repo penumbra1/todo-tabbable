@@ -29,10 +29,9 @@ const TodoItem = props => {
         />
         {props.name}
         <button
-          className="removeItem"
+          className="removeButton"
           onClick={handleRemove}
           aria-label={`Remove item ${props.name}`}
-          title="Icon created by Muneer A.Safiah from the Noun Project"
         >
           <Icon />
         </button>
