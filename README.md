@@ -12,4 +12,4 @@ This is a simple todo app from a very useful [React course](https://egghead.io/c
 - Cleaned up unnecessary divs, improved HTML semantics and accessibility
 - Added styles and icons
 
-TODO: refactor CSS, turn footer into accessible <nav> and style it, add pagination on todo list (via json-server pagination).
+TODO: refactor CSS, turn footer into accessible `<nav>` and style it, add pagination on todo list (via json-server pagination).
