@@ -1,3 +1,6 @@
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/penumbra1/todo-tabbable.svg)](https://greenkeeper.io/)
+
 _Works with JSON-server at localhost:8080 for now (see src/lib/todoService.js)_
 
 This is a simple todo app from a very useful [React course](https://egghead.io/courses/build-your-first-production-quality-react-app) by Andy van Slaars. I made a few tweaks:
